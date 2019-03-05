@@ -1,0 +1,121 @@
+1.Display all departments from department table.
+ SELECT * FROM departments;
+
+2.Display all employees from employee table
+ SELECT * FROM employees;
+
+3. SELECT employee_id, first_name FROM employees WHERE department_id=30;
+
+4.SELECT first_name, phone_number, employee_id FROM employees WHERE job_id="SH_CLERK" OR job_id="ST_CLERK" OR  job_id="PU_CLERK";
+
+5.SELECT department_id, first_name FROM employees WHERE department_id>=20;
+
+7. SELECT * FROM employees WHERE commission_pct > 3*salary/5;
+
+8. SELECT * FROM employees WHERE commission_pct > salary/2;
+
+9. SELECT first_name, job_id, salary FROM employees WHERE department_id=20 AND salary>2000;
+
+10. SELECT * FROM employees WHERE department_id=30 AND salary>=1500 AND (job_id="SA_MAN" OR job_id="SA_REP");
+
+11.SELECT * FROM employees WHERE job_id LIKE "%MGR%" OR job_id LIKE "%PRES%" OR job_id LIKE "%MAN%";
+
+12.SELECT * FROM employees WHERE department_id!=30 AND (job_id LIKE "%MGR%" OR job_id LIKE "%MAN%");
+
+13.SELECT * FROM employees WHERE department_id=10 AND (job_id LIKE "%MGR%" OR job_id LIKE "%CLERK%" OR job_id LIKE "%MAN%");
+
+14. SELECT * FROM employees WHERE (job_id LIKE "%MAN%" OR job_id LIKE "%MGR%") OR (job_id LIKE "%CLERK%" AND department_id=10);
+
+15.SELECT * FROM employees WHERE ((job_id LIKE "%MAN%" OR job_id LIKE "%MGR%") AND department_id=10) AND (job_id LIKE "%CLERK%" AND department_id=20);
+
+16.SELECT * FROM employees WHERE (job_id NOT LIKE "%MAN%" AND job_id NOT LIKE "%MGR%" AND job_id NOT LIKE "%CLERK%") AND salary>2000;
+
+17.SELECT * FROM employees WHERE salary BETWEEN 1200 AND 1400;
+
+18. SELECT * FROM employees WHERE job_id LIKE "%CLERK%" OR job_id LIKE "%SA%";
+
+19. SELECT * FROM employees WHERE job_id NOT LIKE "%CLERK%" AND job_id NOT LIKE "%SA%";
+
+20.SELECT * FROM employees WHERE commission_pct IS NULL;
+
+21.SELECT * FROM employees WHERE commission_pct IS NULL;
+
+22.  SELECT job_id FROM employees WHERE commission_pct IS NOT NULL;
+
+23. SELECT * FROM employees WHERE commission_pct IS NULL OR salary * commission_pct<1000;
+
+24.
+
+25.
+
+26. SELECT * FROM employees WHERE first_name LIKE "m%";
+
+27. SELECT * FROM employees WHERE first_name LIKE "%m";
+
+28. SELECT * FROM employees WHERE first_name LIKE "%m%";
+
+29.SELECT * FROM employees WHERE length(first_name)=5 AND first_name LIKE "%n";
+
+30.SELECT * FROM employees WHERE first_name LIKE "__r%";
+
+31.SELECT hire_date FROM employees WHERE month(hire_date)=02;
+
+32. select first_name , last_day(hire_date) from employees WHERE hire_date=last_day(hire_date);
+
+33.SELECT first_name, hire_date FROM employees WHERE DATEDIFF(NOW(),hire_date)>12;
+
+34. SELECT * FROM employees WHERE (job_id LIKE "%MAN%" OR job_id LIKE "%MGR%") AND YEAR(hire_date)=2007;
+
+35. SELECT CONCAT(first_name, ", ", job_id) AS details FROM employees;
+
+36. SELECT first_name FROM employees WHERE first_name=UCASE(first_name);
+
+37. 
+
+38.
+
+39. SELECT first_name,last_name, LENGTH(first_name)+LENGTH(last_name) AS count FROM employees;
+
+40.
+
+41.SELECT first_name FROM employees WHERE first_name NOT LIKE "a%";
+
+42.SELECT first_name FROM employees WHERE first_name NOT LIKE "%r";
+
+43.SELECT LEFT(first_name,3) FROM employees;
+
+44. SELECT RIGHT(first_name,3) FROM employees;
+
+45.SELECT REPLACE(first_name, "a" , "e" ) FROM employees;
+
+46.SELECT first_name, POSITION(first_name IN "ar") FROM employees WHERE first_name="%ar%";
+
+47.  SELECT ROUND(salary,1000) FROM employees;
+
+48.SELECT first_name, salary/30 FROM employees;
+
+49. SELECT first_name, salary/5 AS bonus ,IF(salary/5<500, salary/5, 500) FROM employees ;
+
+50.SELECT first_name, salary/5 AS bonus ,IF(salary/5<200, salary/5, 200) FROM employees ;
+
+51.SELECT first_name, DATEDIFF(CURDATE(),hire_date) FROM employees;
+
+52.SELECT first_name, TIMESTAMPDIFF(MONTH,hire_date,CURDATE()) FROM employees;
+
+53.
+
+54.
+
+55.SELECT * FROM employees ORDER BY first_name;
+
+56.SELECT * FROM employees ORDER BY hire_date;
+
+57. SELECT * FROM employees ORDER BY job_id,salary;
+
+58. SELECT first_name, job_id, salary FROM employees ORDER BY job_id,salary DESC;
+
+59.SELECT first_name, job_id, salary FROM employees ORDER BY job_id DESC,salary DESC;
+
+60. SELECT first_name, DATE_FORMAT(hire_date , "%M %Y") FROM employees ORDER BY MONTH(hire_date);
+
+61. SELECT first_name, DATE_FORMAT(hire_date , "%M %Y") FROM employees ORDER BY DATE_FORMAT(hire_date, "%Y"), MONTH(hire_date);
